@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="pannel-title">Sign Up</h2>
+  </div><br/>
+  <div class= "panel-body">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control input-sm" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :Passwort %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :Passwort, autocomplete: "new-password",class: "form-control input-sm" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :Passwort_erneut_eingeben %><br />
+    <%= f.password_field :Passwort_erneut_eingeben, autocomplete: "new-password",class: "form-control input-sm" %>
+  </div><br/>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div><br/>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</div>

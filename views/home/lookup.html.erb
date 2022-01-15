@@ -1,0 +1,17 @@
+<h3>Top 100 Cryptocurrencies</h3>
+<br/>
+<%= form_tag home_lookup_path, :method => 'POST' do %>
+	<%= text_field_tag 'sym', nil, placeholder: 'Search...', size: 50 %>
+	<%= submit_tag 'GO!'%>
+<% end %>
+<br><br>
+<%= @symbol %>
+<% @coins %>
+<!-- mit der for schleife suchen wir die Ränge (Also 1 bis 100) und fischen Informationen mit der If-Verzweigung heraus, sodass wir in der Api liste name und de´n Preis rausfiltern und darstellen können -->
+ <% for x in @coins['data'] %>
+    <% for coin in @my_coins %>
+         <% if coin == x['cmc_rank'] %>
+             <%= x['cmc_rank'] %>: <%= x['name'] %>: <%= x['quote']['USD']['price'] %> <br/><br/>
+         <% end %>
+     <% end %>
+<% end %>
